@@ -69,3 +69,9 @@ for folder_name in dict_folders.keys():
 for file_path in source_folder.glob('**/*'):
     if file_path.is_file():
         move(file_path)
+
+
+if __name__ == '__main__':
+    source_path = 'd:/testfolder'
+    normalized_name = normalize(source_path)
+    move(normalized_name)

@@ -4,6 +4,7 @@ import pathlib
 import shutil
 import patoolib
 import tempfile
+import sys
 
 
 def normalize(filename):

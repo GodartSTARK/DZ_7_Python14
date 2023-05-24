@@ -72,6 +72,6 @@ for file_path in source_folder.glob('**/*'):
 
 
 if __name__ == '__main__':
-    source_path = 'd:/testfolder'
+    source_path = sys.argv[1]
     normalized_name = normalize(source_path)
     move(normalized_name)

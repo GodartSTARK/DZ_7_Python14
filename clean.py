@@ -1,4 +1,4 @@
-import transliterate 
+import transliterate
 import os
 import pathlib
 import shutil
@@ -58,21 +58,20 @@ dict_folders = {
     'documents': ['doc', 'docx', 'txt', 'pdf', 'xlsx', 'pptx'],
     'audio': ['mp3', 'ogg', 'wav', 'amr'],
     'archives': ['zip', 'tar', 'gz', 'bz2'],
-    'other': []         
+    'other': []
 }
 
-source_folder = pathlib.Path(r'd:\testfolder')
-
-for folder_name in dict_folders.keys():
-    folder_path = pathlib.Path(folder_name)
-    folder_path.mkdir(exist_ok=True)
-
-for file_path in source_folder.glob('**/*'):
-    if file_path.is_file():
-        move(file_path)
-
-
 if __name__ == '__main__':
-    source_path = sys.argv[1]
-    normalized_name = normalize(source_path)
-    move(normalized_name)
+    if len(sys.argv) > 1:
+        source_folder = pathlib.Path(sys.argv[1])
+    else:
+        print("The source folder path was not specified in the command-line arguments.")
+        sys.exit(1)
+
+    for folder_name in dict_folders.keys():
+        folder_path = pathlib.Path(folder_name)
+        folder_path.mkdir(exist_ok=True)
+
+    for file_path in source_folder.glob('**/*'):
+        if file_path.is_file():
+            move(file_path)
